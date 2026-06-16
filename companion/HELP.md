@@ -1,5 +1,5 @@
 ## Capture Visualiser
-Sends OSC commands to Capture. Default port is 4004. If running capture on the same machine as companion you cannot use 127.0.0.1 but instead you must use the machines IP address allocated by DHCP etc
+Sends OSC commands to Capture Visualiser. Default port is `4004`. If Capture is running on the same machine as Companion, use the machine's LAN IP address rather than `127.0.0.1`.
 
 Some feedback is supplied but capture doesn't give much.
 
@@ -14,4 +14,4 @@ Some feedback is supplied but capture doesn't give much.
 * Set Laser Flicker Yes/No
 * Change camera position
 
-A selection of presets are available which include dynamic updating lables for camera positions
+A selection of presets are available, including dynamically updating labels for camera positions.

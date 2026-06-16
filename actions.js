@@ -32,16 +32,19 @@ module.exports = {
 			// System actions
 			ping: {
 				name: 'Ping Capture',
+				options: [],
 				callback: () => instance.ping(),
 			},
 
 			refreshCatalogs: {
 				name: 'Refresh catalogs',
+				options: [],
 				callback: () => instance.refreshCatalogs(),
 			},
 
 			getViewStatus: {
 				name: 'Get live view status',
+				options: [],
 				callback: () => instance.getViewStatus(),
 			},
 

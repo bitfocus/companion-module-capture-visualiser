@@ -1,4 +1,4 @@
-const { InstanceBase, Regex, runEntrypoint } = require('@companion-module/base')
+const { InstanceBase, InstanceStatus, Regex } = require('@companion-module/base')
 const osc = require('osc')
 
 const actions = require('./actions')
@@ -42,7 +42,7 @@ class CaptureVisualiserInstance extends InstanceBase {
 
 	async init(config) {
 		this.config = config
-		this.updateStatus('connecting')
+		this.updateStatus(InstanceStatus.Connecting)
 
 		this.initActions()
 		this.initFeedbacks()
@@ -113,7 +113,7 @@ class CaptureVisualiserInstance extends InstanceBase {
 		})
 
 		this.oscPort.on('ready', () => {
-			this.updateStatus('ok')
+			this.updateStatus(InstanceStatus.Ok)
 			this.log('info', `Connected to ${host}:${port}`)
 			this.sendOSC('/ping')
 			this.refreshCatalogs()
@@ -124,7 +124,7 @@ class CaptureVisualiserInstance extends InstanceBase {
 		})
 
 		this.oscPort.on('error', (e) => {
-			this.updateStatus('connection_failure', e.message)
+			this.updateStatus(InstanceStatus.ConnectionFailure, e.message)
 			this.log('error', `OSC error: ${e}`)
 		})
 
@@ -293,7 +293,7 @@ class CaptureVisualiserInstance extends InstanceBase {
 				focus_z: this.viewStatus.focusZ.toFixed(2),
 			})
 
-			this.checkFeedbacks('liveViewActive', 'viewIndexMatch')
+		this.checkFeedbacks('liveViewActive', 'viewIndexMatch')
 		}
 	}
 
@@ -303,7 +303,8 @@ class CaptureVisualiserInstance extends InstanceBase {
 	updateDynamicVariables() {
 		this.setVariableDefinitions(variables.getVariables(this))
 		variables.updateVariables(this)
-		this.setPresetDefinitions(presets.getPresets(this))
+		const presetDefinitions = presets.getPresets(this)
+		this.setPresetDefinitions(presetDefinitions.structure, presetDefinitions.presets)
 	}
 
 	// ==================== ACTION HELPERS ====================
@@ -379,8 +380,9 @@ class CaptureVisualiserInstance extends InstanceBase {
 	}
 
 	initPresets() {
-		this.setPresetDefinitions(presets.getPresets(this))
+		const presetDefinitions = presets.getPresets(this)
+		this.setPresetDefinitions(presetDefinitions.structure, presetDefinitions.presets)
 	}
 }
 
-runEntrypoint(CaptureVisualiserInstance)
+module.exports = CaptureVisualiserInstance

@@ -1,4 +1,6 @@
 {
+  "$schema": "../node_modules/@companion-module/base/assets/manifest.schema.json",
+  "type": "connection",
   "id": "capture-visualiser",
   "name": "Capture Visualiser",
   "shortname": "capture",
@@ -9,7 +11,6 @@
 
   "version": "1.2.0",
   "license": "MIT",
-  "configurable": true,
   "legacyIds": [],
 
   "repository": "git+https://github.com/visionmill/companion-module-capture-visualiser.git",
@@ -24,9 +25,9 @@
   ],
 
   "runtime": {
-    "type": "node18",
+    "type": "node22",
     "api": "nodejs-ipc",
-    "apiVersion": "0.0.0",
+    "apiVersion": "2.0.4",
     "entrypoint": "../index.js"
   }
 }

@@ -1,31 +1,25 @@
 module.exports = {
 	getVariables(instance) {
-		const vars = [
-			{ variableId: 'product_name', name: 'Product Name' },
-			{ variableId: 'product_version', name: 'Product Version' },
-			{ variableId: 'catalog_count', name: 'Catalog Count' },
-			{ variableId: 'live_view_index', name: 'Live View Index' },
-			{ variableId: 'camera_x', name: 'Camera X' },
-			{ variableId: 'camera_y', name: 'Camera Y' },
-			{ variableId: 'camera_z', name: 'Camera Z' },
-			{ variableId: 'focus_x', name: 'Focus X' },
-			{ variableId: 'focus_y', name: 'Focus Y' },
-			{ variableId: 'focus_z', name: 'Focus Z' },
-		]
+		const vars = {
+			product_name: { name: 'Product Name' },
+			product_version: { name: 'Product Version' },
+			catalog_count: { name: 'Catalog Count' },
+			live_view_index: { name: 'Live View Index' },
+			camera_x: { name: 'Camera X' },
+			camera_y: { name: 'Camera Y' },
+			camera_z: { name: 'Camera Z' },
+			focus_x: { name: 'Focus X' },
+			focus_y: { name: 'Focus Y' },
+			focus_z: { name: 'Focus Z' },
+		}
 
 		// Add all dynamic catalog / position vars
 		for (const c of instance.catalogs || []) {
-			vars.push({
-				variableId: `catalog_${c}_name`,
-				name: `Catalog ${c} Name`,
-			})
+			vars[`catalog_${c}_name`] = { name: `Catalog ${c} Name` }
 
 			const positions = instance.catalogPositions[c] || []
 			for (const p of positions) {
-				vars.push({
-					variableId: `catalog_${c}_pos_${p}_name`,
-					name: `Catalog ${c} Position ${p} Name`,
-				})
+				vars[`catalog_${c}_pos_${p}_name`] = { name: `Catalog ${c} Position ${p} Name` }
 			}
 		}
 

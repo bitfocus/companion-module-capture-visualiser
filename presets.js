@@ -1,6 +1,7 @@
 module.exports = {
 	getPresets(instance) {
 		const presets = {}
+		const cameraPresetIds = []
 
 		// ===========================
 		// Camera positions (all catalogs dynamically)
@@ -12,10 +13,10 @@ module.exports = {
 		for (const p of positions) {
 			const posNameVar = `$(capture:catalog_${c}_pos_${p}_name)`
 			const presetId = `cam_c${c}_p${p}`
+			cameraPresetIds.push(presetId)
 
 		presets[presetId] = {
-			type: 'button',
-			category: `Camera Catalog ${c}`,
+			type: 'simple',
 			name: `Catalog ${c} Pos ${p}`,
 			style: {
 				text: `${catNameVar}\n${posNameVar}`,
@@ -51,8 +52,7 @@ module.exports = {
 		// ===========================
 		// Ambient 0/50/100% (using ambientLighting action which converts to 0–1)
 		presets['ambient_0'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Ambient 0%',
 			style: {
 				text: 'Ambient\n0%',
@@ -75,8 +75,7 @@ module.exports = {
 		}
 
 		presets['ambient_50'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Ambient 50%',
 			style: {
 				text: 'Ambient\n50%',
@@ -99,8 +98,7 @@ module.exports = {
 		}
 
 		presets['ambient_100'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Ambient 100%',
 			style: {
 				text: 'Ambient\n100%',
@@ -124,8 +122,7 @@ module.exports = {
 
 		// Fill lighting 0/50/100
 		presets['fill_0'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Fill 0%',
 			style: {
 				text: 'Fill\n0%',
@@ -148,8 +145,7 @@ module.exports = {
 		}
 
 		presets['fill_50'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Fill 50%',
 			style: {
 				text: 'Fill\n50%',
@@ -172,8 +168,7 @@ module.exports = {
 		}
 
 		presets['fill_100'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Fill 100%',
 			style: {
 				text: 'Fill\n100%',
@@ -197,8 +192,7 @@ module.exports = {
 
 		// Hue Clamp 0/50/100
 		presets['hue_0'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Hue Clamp 0%',
 			style: {
 				text: 'Hue\n0%',
@@ -221,8 +215,7 @@ module.exports = {
 		}
 
 		presets['hue_50'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Hue Clamp 50%',
 			style: {
 				text: 'Hue\n50%',
@@ -245,8 +238,7 @@ module.exports = {
 		}
 
 		presets['hue_100'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Hue Clamp 100%',
 			style: {
 				text: 'Hue\n100%',
@@ -270,8 +262,7 @@ module.exports = {
 
 		// Bloom presets
 		presets['bloom_0'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Bloom 0%',
 			style: {
 				text: 'Bloom\n0%',
@@ -294,8 +285,7 @@ module.exports = {
 		}
 
 		presets['bloom_30'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Bloom 30%',
 			style: {
 				text: 'Bloom\n30%',
@@ -318,8 +308,7 @@ module.exports = {
 		}
 
 		presets['bloom_50'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Bloom 50%',
 			style: {
 				text: 'Bloom\n50%',
@@ -342,8 +331,7 @@ module.exports = {
 		}
 
 		presets['bloom_80'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Bloom 80%',
 			style: {
 				text: 'Bloom\n80%',
@@ -367,8 +355,7 @@ module.exports = {
 
 		// Exposure: auto on/off
 		presets['auto_exposure_on'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Auto Exposure YES',
 			style: {
 				text: 'Auto\nExposure\nYES',
@@ -391,8 +378,7 @@ module.exports = {
 		}
 
 		presets['auto_exposure_off'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Auto Exposure NO',
 			style: {
 				text: 'Auto\nExposure\nNO',
@@ -416,8 +402,7 @@ module.exports = {
 
 		// Exposure adjustment
 		presets['exposure_minus_3'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Exposure -3EV',
 			style: {
 				text: 'Exposure\n-3EV',
@@ -440,8 +425,7 @@ module.exports = {
 		}
 
 		presets['exposure_0'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Exposure 0EV',
 			style: {
 				text: 'Exposure\n0EV',
@@ -464,8 +448,7 @@ module.exports = {
 		}
 
 		presets['exposure_plus_3'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Exposure +3EV',
 			style: {
 				text: 'Exposure\n+3EV',
@@ -489,8 +472,7 @@ module.exports = {
 
 		// Laser flicker
 		presets['laser_on'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Laser Flicker YES',
 			style: {
 				text: 'Laser\nFlicker\nYES',
@@ -513,8 +495,7 @@ module.exports = {
 		}
 
 		presets['laser_off'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Laser Flicker NO',
 			style: {
 				text: 'Laser\nFlicker\nNO',
@@ -538,8 +519,7 @@ module.exports = {
 
 		// White balance
 		presets['wb_tungsten'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Tungsten 3200K',
 			style: {
 				text: 'WB\nTungsten\n3200K',
@@ -562,8 +542,7 @@ module.exports = {
 		}
 
 		presets['wb_daylight'] = {
-			type: 'button',
-			category: 'Lighting',
+			type: 'simple',
 			name: 'Daylight 6500K',
 			style: {
 				text: 'WB\nDaylight\n6500K',
@@ -587,8 +566,7 @@ module.exports = {
 
 		// System / debug
 		presets['ping'] = {
-			type: 'button',
-			category: 'System',
+			type: 'simple',
 			name: 'Ping',
 			style: {
 				text: 'PING',
@@ -611,8 +589,7 @@ module.exports = {
 		}
 
 		presets['get_status'] = {
-			type: 'button',
-			category: 'System',
+			type: 'simple',
 			name: 'Get Status',
 			style: {
 				text: 'Get\nStatus',
@@ -635,8 +612,7 @@ module.exports = {
 		}
 
 		presets['refresh_catalogs'] = {
-			type: 'button',
-			category: 'System',
+			type: 'simple',
 			name: 'Refresh Catalogs',
 			style: {
 				text: 'Refresh\nCatalogs',
@@ -658,6 +634,45 @@ module.exports = {
 			feedbacks: [],
 		}
 
-		return presets
+		const lightingPresetIds = [
+			'ambient_0',
+			'ambient_50',
+			'ambient_100',
+			'fill_0',
+			'fill_50',
+			'fill_100',
+			'hue_0',
+			'hue_50',
+			'hue_100',
+			'bloom_0',
+			'bloom_30',
+			'bloom_50',
+			'bloom_80',
+			'auto_exposure_on',
+			'auto_exposure_off',
+			'exposure_minus_3',
+			'exposure_0',
+			'exposure_plus_3',
+			'laser_on',
+			'laser_off',
+			'wb_tungsten',
+			'wb_daylight',
+		]
+
+		const structure = [
+			{
+				id: 'capture',
+				name: 'Capture Visualiser',
+				definitions: [
+					...(cameraPresetIds.length > 0
+						? [{ id: 'camera', name: 'Camera Positions', type: 'simple', presets: cameraPresetIds }]
+						: []),
+					{ id: 'lighting', name: 'Lighting', type: 'simple', presets: lightingPresetIds },
+					{ id: 'system', name: 'System', type: 'simple', presets: ['ping', 'get_status', 'refresh_catalogs'] },
+				],
+			},
+		]
+
+		return { structure, presets }
 	},
 }
