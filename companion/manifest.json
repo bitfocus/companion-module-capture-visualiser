@@ -6,15 +6,15 @@
   "shortname": "capture",
   "description": "Control Capture Visualiser via OSC (TCP/UDP).",
   "manufacturer": "Capture.se",
-  "products": ["Capture Visualiser"],
-  "keywords": ["capture", "visualiser", "osc", "lighting", "previz"],
+  "products": ["Visualiser"],
+  "keywords": ["osc", "lighting", "previz"],
 
-  "version": "1.2.0",
+  "version": "0.0.0",
   "license": "MIT",
   "legacyIds": [],
 
-  "repository": "git+https://github.com/visionmill/companion-module-capture-visualiser.git",
-  "bugs": "https://github.com/visionmill/companion-module-capture-visualiser/issues",
+  "repository": "git+https://github.com/bitfocus/companion-module-capture-visualiser.git",
+  "bugs": "https://github.com/bitfocus/companion-module-capture-visualiser/issues",
 
 
   "maintainers": [
@@ -27,7 +27,7 @@
   "runtime": {
     "type": "node22",
     "api": "nodejs-ipc",
-    "apiVersion": "2.0.4",
+    "apiVersion": "0.0.0",
     "entrypoint": "../index.js"
   }
 }
