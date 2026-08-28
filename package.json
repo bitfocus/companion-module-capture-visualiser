@@ -1,6 +1,7 @@
 {
   "name": "companion-module-capture-visualiser",
   "version": "1.2.1",
+  "license": "MIT",
   "description": "Bitfocus Companion module for Capture Visualiser OSC control",
   "main": "index.js",
   "type": "commonjs",
